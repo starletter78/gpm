@@ -1,0 +1,27 @@
+# 请将文件名字修改为settings.yaml后使用
+system:
+  ip: 127.0.0.1
+  port: 8080
+  env: dev
+log:
+  debug: true
+  app: gpm
+  dir: logs
+db:
+  - user: postgres
+    password:
+    host:
+    port:
+    db:
+    source:
+    debug: false
+jwt:
+  accessExpire: 900
+  refreshExpire: 604800
+  accessSecret:
+  refreshSecret:
+  issuer:
+argsCheck:
+  prefix:
+  suffix:
+
