@@ -7,8 +7,8 @@ import (
 
 type BaseModel struct {
 	ID       string `gorm:"type:uuid;primary_key;"`
-	CreateAt int    `gorm:"autoUpdateTime;int(11)" json:"create_at"`
-	UpdateAt int    `gorm:"autoCreateTime;int(11)" json:"update_at"`
+	CreateAt int    `gorm:"autoUpdateTime;" json:"create_at"`
+	UpdateAt int    `gorm:"autoCreateTime;" json:"update_at"`
 }
 
 func (b *BaseModel) BeforeCreate(tx *gorm.DB) (err error) {

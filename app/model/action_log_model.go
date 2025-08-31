@@ -6,7 +6,7 @@ type ActionLog struct {
 	UserID       string  `gorm:"type:uuid;comment:操作用户ID" json:"user_id"`
 	User         User    `gorm:"foreignkey:UserID" json:"-"`
 	IP           string  `gorm:"type:varchar(45);default:'';comment:IP地址" json:"ip"`
-	UA           string  `gorm:"size:1024;default:'';comment:用户代理" json:"ua"`
+	UA           string  `gorm:"type:varchar(1024);default:'';comment:用户代理" json:"ua"`
 	Action       string  `gorm:"type:varchar(255);default:'';comment:操作描述" json:"action"`
 	Path         string  `gorm:"type:varchar(255);default:'';comment:请求路径" json:"path"`
 	Method       string  `gorm:"type:varchar(10);default:'';comment:请求方法" json:"method"`
