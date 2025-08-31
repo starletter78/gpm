@@ -48,10 +48,16 @@ func LogMiddleware(c *gin.Context) {
 	}
 	headerStr := string(header)
 	duration := time.Since(startTime).Seconds() * 1000
+	userId := new(string)
+	userIdStr := c.GetString("userID")
+	userId = &userIdStr
+	if userIdStr == "" {
+		userId = nil
+	}
 	// 构造操作日志结构体
 	actionLog := model.ActionLog{
 		LogID:        logId,
-		UserID:       c.GetString("userID"),
+		UserID:       userId,
 		IP:           c.ClientIP(),
 		UA:           c.Request.UserAgent(),
 		Action:       c.GetString("action"),

@@ -3,7 +3,7 @@ package model
 type ActionLog struct {
 	BaseModel
 	LogID        string  `gorm:"type:uuid;not null;comment:日志唯一标识" json:"log_id"`
-	UserID       string  `gorm:"type:uuid;comment:操作用户ID" json:"user_id"`
+	UserID       *string `gorm:"type:uuid;comment:操作用户ID" json:"user_id"`
 	User         User    `gorm:"foreignkey:UserID" json:"-"`
 	IP           string  `gorm:"type:varchar(45);default:'';comment:IP地址" json:"ip"`
 	UA           string  `gorm:"type:varchar(1024);default:'';comment:用户代理" json:"ua"`

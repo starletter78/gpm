@@ -53,7 +53,7 @@ func (j *JWT) generateAccessToken(id string, roles []string) (string, error) {
 		},
 		Type: "access",
 		RegisteredClaims: jwt.RegisteredClaims{
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Duration(global.Config.Jwt.AccessExpire))),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Duration(global.Config.Jwt.AccessExpire) * time.Second)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			NotBefore: jwt.NewNumericDate(time.Now()),
 			Issuer:    global.Config.Jwt.Issuer,
@@ -70,7 +70,7 @@ func (j *JWT) generateRefreshToken(id string) (string, error) {
 		Id:   id,
 		Type: "refresh",
 		RegisteredClaims: jwt.RegisteredClaims{
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Duration(global.Config.Jwt.RefreshExpire))),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Duration(global.Config.Jwt.RefreshExpire) * time.Second)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			NotBefore: jwt.NewNumericDate(time.Now()),
 			Issuer:    global.Config.Jwt.Issuer,
