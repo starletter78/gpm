@@ -1,7 +1,6 @@
 package router
 
 import (
-	"gpm/app/controller"
 	"gpm/app/middleware"
 	"gpm/global"
 
@@ -11,7 +10,7 @@ import (
 func Run() {
 	engine := gin.Default()
 	r := engine.Group("gpm")
-	r.GET("health", controller.GpmHealthView)
+	HealthRoute(r)
 	r.Use(middleware.LogMiddleware, middleware.ArgsCheckMiddleware)
 	UserRoute(r)
 	SearchRoute(r)

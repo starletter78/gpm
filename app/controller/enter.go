@@ -3,6 +3,7 @@ package controller
 import (
 	"gpm/app/controller/api"
 	"gpm/app/controller/doc"
+	"gpm/app/controller/health"
 	"gpm/app/controller/menu"
 	"gpm/app/controller/permission"
 	"gpm/app/controller/role"
@@ -11,7 +12,7 @@ import (
 	"gpm/app/controller/user"
 )
 
-type AdminApi struct {
+type GpmApi struct {
 	UserApi       user.UserApi
 	SearchApi     search.SearchApi
 	ApiApi        api.ApiApi
@@ -20,4 +21,5 @@ type AdminApi struct {
 	RoleApi       role.RoleApi
 	MenuApi       menu.MenuApi
 	PermissionApi permission.PermissionApi
+	HealthApi     health.HealthApi
 }

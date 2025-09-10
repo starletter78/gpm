@@ -33,7 +33,11 @@ func initFile(logPath, appName string) {
 func InitLogrus() {
 	//新建一个实例
 	logrus.SetReportCaller(false) //开启返回函数名和行号
-	logrus.SetFormatter(&logrus.JSONFormatter{})
+	logrus.SetFormatter(&logrus.TextFormatter{
+		FullTimestamp:   true,
+		TimestampFormat: "2006-01-02 15:04:05",
+		DisableColors:   false,
+	})
 	logrus.SetLevel(logrus.DebugLevel)
 	initFile(global.Config.Log.Dir, global.Config.Log.App) //设置最低的Level
 	logrus.Infof("日志初始化成功")

@@ -8,7 +8,7 @@ import (
 )
 
 func SearchRoute(r *gin.RouterGroup) {
-	app := controller.AdminApi{}.SearchApi.File
+	app := controller.GpmApi{}.SearchApi.File
 	userRoute := r.Group("search")
 	userRoute.GET("fileTree", middleware.JwtMiddleware, middleware.CasbinMiddleware, app.FileTreeView)
 	userRoute.GET("fileSearch", middleware.JwtMiddleware, middleware.CasbinMiddleware, app.FileSearchView)

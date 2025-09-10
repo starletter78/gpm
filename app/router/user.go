@@ -7,7 +7,7 @@ import (
 )
 
 func UserRoute(r *gin.RouterGroup) {
-	app := controller.AdminApi{}.UserApi
+	app := controller.GpmApi{}.UserApi
 	userRoute := r.Group("user")
 	userRoute.GET("login", app.UserLoginView)
 	userRoute.POST("register", app.UserRegisterView)
